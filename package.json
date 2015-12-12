@@ -1,0 +1,44 @@
+{
+  "name": "github-ribbon-generator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azu/github-ribbon-generator.git"
+  },
+  "author": "azu",
+  "email": "azuciao@gmail.com",
+  "homepage": "https://github.com/azu/github-ribbon-generator",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/github-ribbon-generator/issues"
+  },
+  "version": "1.0.0",
+  "description": "GitHub Ribbon Generator",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "browserify -e src/index.js -o build.js",
+    "watch": "watchify -vd -e src/index.js -o build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "vueify"
+    ]
+  },
+  "dependencies": {
+    "vue": "^1.0.11"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "vue-hot-reload-api": "^1.2.2",
+    "vueify": "^7.0.2",
+    "vueify-insert-css": "^1.0.0",
+    "watchify": "^3.6.1"
+  }
+}
