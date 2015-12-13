@@ -12,7 +12,7 @@
     "url": "https://github.com/azu/github-ribbon-generator/issues"
   },
   "version": "1.0.0",
-  "description": "GitHub Ribbon Generator",
+  "description": "GitHub Ribbon Generator on Web.",
   "main": "index.js",
   "directories": {
     "test": "test"

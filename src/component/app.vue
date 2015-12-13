@@ -20,6 +20,7 @@
     <div class="App">
         <h1>GitHub Ribbon Generator</h1>
         <div class="header">
+            <h2><iframe src="https://ghbtns.com/github-btn.html?user=azu&repo=github-ribbon-generator&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></h2>
             <h2>Create Copy-Pastable GitHub Ribbon HTML snippet</h2>
         </div>
         <user-input :repository-url="repositoryURL"
