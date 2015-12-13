@@ -14,4 +14,7 @@ export default class ChangeEmitter extends EventEmitter {
     onChange(eventHandler) {
         this.on("change", eventHandler);
     }
+    removeChange(eventHandler) {
+        this.removeListener("change", eventHandler);
+    }
 }

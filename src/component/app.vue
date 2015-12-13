@@ -60,6 +60,9 @@
         },
         created () {
             Store.onChange(this.update);
+        },
+        destroyed(){
+            Store.removeChange(this.update);
         }
     }
 </script>
