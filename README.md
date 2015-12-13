@@ -8,7 +8,7 @@ See [GitHub Ribbons](https://github.com/blog/273-github-ribbons "GitHub Ribbons"
 
 ## Usage
 
-Open https://azugithub.io/github-ribbon-generator
+Open http://azu.github.io/github-ribbon-generator/
 
 ## Installation
 
