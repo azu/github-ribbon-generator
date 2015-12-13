@@ -1,15 +1,18 @@
 <style>
+    .UserInput .UserInput-field{
+        margin: 1rem 0 ;
+    }
 </style>
 <template>
     <div class="UserInput">
         <form class="pure-form pure-form-aligned">
             <fieldset>
-                <div class="pure-control-group">
+                <div class="UserInput-field pure-control-group">
                     <label>GitHub Repository:</label>
                     <input class="pure-input-2-3" type="text" v-model="repositoryURL"
                            placeholder="https://github.com/jquery/jquery">
                 </div>
-                <div class="pure-control-group">
+                <div class="UserInput-field pure-control-group">
                     <label for="position">Position:</label>
                     <select id="position" v-model="position">
                         <option v-for="position in positionList" :value="position.value">
@@ -17,7 +20,7 @@
                         </option>
                     </select>
                 </div>
-                <div class="pure-control-group">
+                <div class="UserInput-field pure-control-group">
                     <label for="color">Color:</label>
                     <select id="color" v-model="color">
                         <option v-for="color in colorList" :value="color.value">
@@ -40,6 +43,8 @@
             color: String
         },
         data() {
+            // http://jp.vuejs.org/guide/forms.html#Select
+            // Create [{ text, value }]
             return {
                 colorList: colorList.map(function (color) {
                     return {text: color, value: color}
@@ -47,11 +52,6 @@
                 positionList: positionList.map(function (position) {
                     return {text: position, value: position}
                 })
-            }
-        },
-        methods: {
-            onChange(){
-                console.log(arguments);
             }
         },
         created(){

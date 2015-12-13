@@ -18,7 +18,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "browserify -e src/index.js -o build.js",
+    "build": "NODE_ENV=production browserify -e src/index.js -o build.js",
     "watch": "watchify -vd -e src/index.js -o build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
