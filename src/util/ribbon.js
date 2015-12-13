@@ -1,9 +1,21 @@
 // LICENSE : MIT
 "use strict";
-const defaultOptions = Object.freeze({
-    color: "black",
+export const defaultOptions = Object.freeze({
+    color: "darkblue",
     position: "right"
 });
+export const positionList = [
+    "left",
+    "right"
+];
+export const colorList = [
+    "red",
+    "green",
+    "darkblue",
+    "orange",
+    "gray",
+    "white"
+];
 /**
  * @return {string}
  */
@@ -17,14 +29,14 @@ export function GitHubRibbonStyle(options = {}) {
     }
     throw new Error("should not reach. position: " + position);
 }
-
+// https://github.com/liquidz/misaki/blob/master/src/misaki/compiler/default/html/util.clj
 export function colorToHex(color) {
     switch (color) {
         case "red":
             return "aa0000";
         case "green":
             return "007200";
-        case "black":
+        case "darkblue":
             return "121621";
         case "orange":
             return "ff7600";

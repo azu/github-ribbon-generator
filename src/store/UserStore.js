@@ -1,13 +1,14 @@
 // LICENSE : MIT
 "use strict";
+import { defaultOptions } from "../util/ribbon";
 import ChangeEmitter from "./ChangeEmitter";
 class UserStore extends ChangeEmitter {
     constructor() {
         super();
         this.state = {
             repositoryURL: "",
-            position: "right",
-            color: "red"
+            position: defaultOptions.position,
+            color: defaultOptions.color
         };
     }
 
