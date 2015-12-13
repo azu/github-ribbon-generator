@@ -20,7 +20,7 @@
   "scripts": {
     "build": "NODE_ENV=production browserify -e src/index.js -o build.js",
     "watch": "watchify -vd -e src/index.js -o build.js",
-    "deploy": "gh-pages-deploy-sh"
+    "deploy": "gh-pages-deploy-sh ./"
   },
   "browserify": {
     "transform": [
