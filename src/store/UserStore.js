@@ -7,7 +7,7 @@ class UserStore extends ChangeEmitter {
         this.state = {
             repositoryURL: "",
             position: "right",
-            color: "Red"
+            color: "red"
         };
     }
 

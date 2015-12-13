@@ -1,14 +1,30 @@
+<style>
+    .App {
+        padding-left: 2em;
+        padding-right: 2em;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 768px;
+    }
+
+</style>
 <template>
-    <user-input :repository-url="repositoryURL"
-                :color="color"
-                :position="position"></user-input>
-    <git-hub-ribbon :repository-url="repositoryURL"
-                   :color="color"
-                   :position="position"></git-hub-ribbon>
+    <div class="App">
+        <user-input :repository-url="repositoryURL"
+                    :color="color"
+                    :position="position"></user-input>
+        <copy-paste-box :repository-url="repositoryURL"
+                        :color="color"
+                        :position="position"></copy-paste-box>
+        <git-hub-ribbon :repository-url="repositoryURL"
+                        :color="color"
+                        :position="position"></git-hub-ribbon>
+    </div>
 </template>
 <script>
     import UserInput from "./user-input.vue";
     import GitHubRibbon from "./github-ribbon.vue";
+    import CopyPasteBox from "./copypaste-box.vue";
     import Store from "../store/UserStore";
     export default {
         name: "App",
@@ -16,8 +32,9 @@
             return Store.getState();
         },
         components: {
+            UserInput,
             GitHubRibbon,
-            UserInput
+            CopyPasteBox
         },
         methods: {
             update () {
