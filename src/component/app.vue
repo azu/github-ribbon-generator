@@ -4,6 +4,7 @@
         padding-right: 2em;
         margin-left: auto;
         margin-right: auto;
+        padding-top:1em;
         max-width: 768px;
     }
 
