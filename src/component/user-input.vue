@@ -1,6 +1,6 @@
 <style>
-    .UserInput .UserInput-field{
-        margin: 1rem 0 ;
+    .UserInput .UserInput-field {
+        margin: 1rem 0;
     }
 </style>
 <template>
@@ -54,16 +54,16 @@
                 })
             }
         },
-        created(){
-            this.$watch('repositoryURL', function (newVal, oldVal) {
+        watch: {
+            repositoryURL(newVal, oldVal) {
                 Store.setRepositoryURL(newVal);
-            });
-            this.$watch('color', function (newVal, oldVal) {
+            },
+            color(newVal, oldVal) {
                 Store.setColor(newVal);
-            });
-            this.$watch('position', function (newVal, oldVal) {
+            },
+            position(newVal, oldVal) {
                 Store.setPosition(newVal);
-            });
+            }
         }
-    }
+    };
 </script>
