@@ -1,0 +1,6 @@
+.DS_Store
+/format-util.js
+*.bak
+node_modules
+coverage
+target
