@@ -4,7 +4,7 @@
         padding-right: 2em;
         margin-left: auto;
         margin-right: auto;
-        padding-top:1em;
+        padding-top: 1em;
         max-width: 768px;
     }
 
@@ -13,6 +13,7 @@
         font-weight: 100;
         margin: 0;
     }
+
     .App .header {
         margin-bottom: 1rem;
     }
@@ -21,18 +22,21 @@
     <div class="App">
         <h1>GitHub Ribbon Generator</h1>
         <div class="header">
-            <h2><iframe src="https://ghbtns.com/github-btn.html?user=azu&repo=github-ribbon-generator&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></h2>
+            <h2>
+                <iframe src="https://ghbtns.com/github-btn.html?user=azu&repo=github-ribbon-generator&type=star&count=true&size=large"
+                        frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </h2>
             <h2>Create Copy-Pastable GitHub Ribbon HTML snippet</h2>
         </div>
-        <user-input :repository-url="repositoryURL"
-                    :color="color"
-                    :position="position"></user-input>
-        <copy-paste-box :repository-url="repositoryURL"
-                        :color="color"
-                        :position="position"></copy-paste-box>
-        <git-hub-ribbon :repository-url="repositoryURL"
-                        :color="color"
-                        :position="position"></git-hub-ribbon>
+        <user-input :repository-url="state.repositoryURL"
+                    :color="state.color"
+                    :position="state.position"></user-input>
+        <copy-paste-box :repository-url="state.repositoryURL"
+                        :color="state.color"
+                        :position="state.position"></copy-paste-box>
+        <git-hub-ribbon :repository-url="state.repositoryURL"
+                        :color="state.color"
+                        :position="state.position"></git-hub-ribbon>
     </div>
 </template>
 <script>
@@ -42,8 +46,11 @@
     import Store from "../store/UserStore";
     export default {
         name: "App",
+        // App's state
         data () {
-            return Store.getState();
+            return {
+                state: Store.getState()
+            };
         },
         components: {
             UserInput,
@@ -51,18 +58,17 @@
             CopyPasteBox
         },
         methods: {
-            update () {
-                let state = Store.getState();
-                this.repositoryURL = state.repositoryURL;
-                this.color = state.color;
-                this.position = state.position;
+            // update State
+            updateState () {
+                const state = Store.getState();
+                this.state = Object.assign({}, state);
             }
         },
         created () {
-            Store.onChange(this.update);
+            Store.onChange(this.updateState);
         },
         destroyed(){
-            Store.removeChange(this.update);
+            Store.removeChange(this.updateState);
         }
     }
 </script>
