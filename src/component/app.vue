@@ -28,9 +28,9 @@
             </h2>
             <h2>Create Copy-Pastable GitHub Ribbon HTML snippet</h2>
         </div>
-        <user-input v-bind="state"></user-input>
-        <copy-paste-box v-bind="state"></copy-paste-box>
-        <git-hub-ribbon v-bind="state"></git-hub-ribbon>
+        <UserInput v-bind="state"></UserInput>
+        <CopyPasteBox v-bind="state"></CopyPasteBox>
+        <GitHubRibbon v-bind="state"></GitHubRibbon>
     </div>
 </template>
 <script>
