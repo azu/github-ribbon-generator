@@ -28,15 +28,9 @@
             </h2>
             <h2>Create Copy-Pastable GitHub Ribbon HTML snippet</h2>
         </div>
-        <user-input :repository-url="state.repositoryURL"
-                    :color="state.color"
-                    :position="state.position"></user-input>
-        <copy-paste-box :repository-url="state.repositoryURL"
-                        :color="state.color"
-                        :position="state.position"></copy-paste-box>
-        <git-hub-ribbon :repository-url="state.repositoryURL"
-                        :color="state.color"
-                        :position="state.position"></git-hub-ribbon>
+        <user-input v-bind="state"></user-input>
+        <copy-paste-box v-bind="state"></copy-paste-box>
+        <git-hub-ribbon v-bind="state"></git-hub-ribbon>
     </div>
 </template>
 <script>
@@ -44,10 +38,11 @@
     import GitHubRibbon from "./github-ribbon.vue";
     import CopyPasteBox from "./copypaste-box.vue";
     import Store from "../store/UserStore";
+
     export default {
         name: "App",
         // App's state
-        data () {
+        data() {
             return {
                 state: Store.getState()
             };
@@ -59,15 +54,16 @@
         },
         methods: {
             // update State
-            updateState () {
+            updateState() {
                 const state = Store.getState();
-                this.state = Object.assign({}, state);
+                this.state = Object.assign({}, this.state, state);
             }
         },
-        created () {
+        created() {
+            this.state = Store.getState();
             Store.onChange(this.updateState);
         },
-        destroyed(){
+        destroyed() {
             Store.removeChange(this.updateState);
         }
     }

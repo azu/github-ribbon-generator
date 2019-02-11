@@ -60,6 +60,9 @@ export function GitHubRibbonImage(options = {}) {
     return `https://s3.amazonaws.com/github/ribbons/forkme_${position}_${color}_${colorHex}.png`;
 }
 
+/**
+ * @return {string}
+ */
 export function GitHubCopyPaste(options = {}) {
     const repositoryURL = options.repositoryURL;
     const imageURL = GitHubRibbonImage(options);
