@@ -2,11 +2,13 @@
     .CopyPasteBox, .CopyPasteBox-textarea {
         min-height: 5em;
     }
+
     .CopyPasteBox {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
+
     .CopyPasteBox-textarea {
         width: 100%;
         margin: 0 2em;
@@ -18,7 +20,8 @@
     </div>
 </template>
 <script>
-    import {GitHubCopyPaste} from "../util/ribbon";
+    import { GitHubCopyPaste } from "../util/ribbon";
+
     export default {
         name: 'CopyPasteBox',
         props: {
@@ -27,8 +30,16 @@
             color: String
         },
         computed: {
-            GitHubRibbonHTML: function () {
-                return GitHubCopyPaste(this.$data);
+            /**
+             * @return {string}
+             */
+            GitHubRibbonHTML: function() {
+                // Vue watch accessing for these property
+                return GitHubCopyPaste({
+                    repositoryURL: this.repositoryURL,
+                    position: this.position,
+                    color: this.color
+                });
             }
         }
     }

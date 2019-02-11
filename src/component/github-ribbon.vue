@@ -2,7 +2,8 @@
     <div class="GitHubRibbon" v-html="GitHubRibbonHTML"></div>
 </template>
 <script>
-    import {GitHubCopyPaste} from "../util/ribbon"
+    import { GitHubCopyPaste } from "../util/ribbon"
+
     export default {
         name: 'GitHubRibbon',
         props: {
@@ -11,8 +12,16 @@
             color: String
         },
         computed: {
-            GitHubRibbonHTML: function () {
-                return GitHubCopyPaste(this.$data);
+            /**
+             * @return {string}
+             */
+            GitHubRibbonHTML: function() {
+                // Vue watch accessing for these property
+                return GitHubCopyPaste({
+                    repositoryURL: this.repositoryURL,
+                    position: this.position,
+                    color: this.color
+                });
             }
         }
     }

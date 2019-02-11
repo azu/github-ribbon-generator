@@ -9,22 +9,29 @@
             <fieldset>
                 <div class="UserInput-field pure-control-group">
                     <label>GitHub Repository:</label>
-                    <input class="pure-input-2-3" type="text" v-model="repositoryURL"
+                    <input class="pure-input-2-3" type="text"
+                           :value="repositoryURL"
+                           @input="onChangeRepositoryURL"
                            placeholder="https://github.com/jquery/jquery">
                 </div>
                 <div class="UserInput-field pure-control-group">
                     <label for="position">Position:</label>
-                    <select id="position" v-model="position">
-                        <option v-for="position in positionList" :value="position.value">
-                            {{ position.text }}
+                    <select id="position" @change="onChangePosition">
+                        <option v-for="positionItem in positionList"
+                                :value="positionItem.text"
+                                :selected="positionItem.text === position"
+                        >
+                            {{ positionItem.text }}
                         </option>
                     </select>
                 </div>
                 <div class="UserInput-field pure-control-group">
                     <label for="color">Color:</label>
-                    <select id="color" v-model="color">
-                        <option v-for="color in colorList" :value="color.value">
-                            {{ color.text }}
+                    <select id="color" @change="onChangeColor">
+                        <option v-for="colorItem in colorList"
+                                :value="colorItem.text"
+                                :selected="colorItem.text === color">
+                            {{ colorItem.text }}
                         </option>
                     </select>
                 </div>
@@ -34,7 +41,8 @@
 </template>
 <script>
     import Store from "../store/UserStore";
-    import {colorList, positionList} from "../util/ribbon";
+    import { colorList, positionList } from "../util/ribbon";
+
     export default {
         name: 'UserInput',
         props: {
@@ -46,23 +54,23 @@
             // http://jp.vuejs.org/guide/forms.html#Select
             // Create [{ text, value }]
             return {
-                colorList: colorList.map(function (color) {
-                    return {text: color, value: color}
+                colorList: colorList.map(function(color) {
+                    return { text: color, value: color }
                 }),
-                positionList: positionList.map(function (position) {
-                    return {text: position, value: position}
+                positionList: positionList.map(function(position) {
+                    return { text: position, value: position }
                 })
             }
         },
-        watch: {
-            repositoryURL(newVal, oldVal) {
-                Store.setRepositoryURL(newVal);
+        methods: {
+            onChangeRepositoryURL(event) {
+                Store.setRepositoryURL(event.target.value);
             },
-            color(newVal, oldVal) {
-                Store.setColor(newVal);
+            onChangeColor(event) {
+                Store.setColor(event.target.value);
             },
-            position(newVal, oldVal) {
-                Store.setPosition(newVal);
+            onChangePosition(event) {
+                Store.setPosition(event.target.value);
             }
         }
     };
