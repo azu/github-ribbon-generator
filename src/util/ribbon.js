@@ -57,7 +57,7 @@ export function GitHubRibbonImage(options = {}) {
     const color = options.color || defaultOptions.color;
     const position = options.position || defaultOptions.position;
     const colorHex = colorToHex(color);
-    return `https://s3.amazonaws.com/github/ribbons/forkme_${position}_${color}_${colorHex}.png`;
+    return `https://github.blog/wp-content/uploads/2008/12/forkme_${position}_${color}_${colorHex}.png`;
 }
 
 /**
